@@ -77,6 +77,36 @@ class Settings(BaseSettings):
 
 
 
+    @field_validator("DATABASE_URL", mode="before")
+
+    @classmethod
+
+    def parse_database_url(cls, v: Any) -> str:
+
+        if isinstance(v, str):
+
+            v = v.strip()
+
+            if v.startswith("postgres://"):
+
+                v = "postgresql+asyncpg://" + v[len("postgres://"):]
+
+            elif v.startswith("postgresql://") and not v.startswith("postgresql+asyncpg://"):
+
+                v = "postgresql+asyncpg://" + v[len("postgresql://"):]
+
+            elif v.startswith("sqlite://") and not v.startswith("sqlite+aiosqlite://"):
+
+                v = "sqlite+aiosqlite://" + v[len("sqlite://"):]
+
+            if "postgresql+asyncpg://" in v and "sslmode=" in v:
+
+                v = v.replace("sslmode=", "ssl=")
+
+        return v
+
+
+
     @field_validator("DEBUG", mode="before")
 
     @classmethod

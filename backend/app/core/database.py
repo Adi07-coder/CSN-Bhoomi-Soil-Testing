@@ -48,8 +48,53 @@ class GUID(TypeDecorator):
         return uuid.UUID(str(value))
 
 
-# Choose active DB URL: if postgresql is configured, test if it's usable or fallback to sqlite
-ACTIVE_DB_URL = settings.DATABASE_URL
+def normalize_database_url(url: str) -> str:
+    """Normalize raw database URLs to SQLAlchemy 2.0 Async-compatible dialect drivers."""
+    if not url:
+        return url
+    url = url.strip()
+    if url.startswith("postgres://"):
+        url = "postgresql+asyncpg://" + url[len("postgres://"):]
+    elif url.startswith("postgresql://") and not url.startswith("postgresql+asyncpg://"):
+        url = "postgresql+asyncpg://" + url[len("postgresql://"):]
+    elif url.startswith("sqlite://") and not url.startswith("sqlite+aiosqlite://"):
+        url = "sqlite+aiosqlite://" + url[len("sqlite://"):]
+
+    # Convert sslmode query parameter to ssl for asyncpg compatibility
+    if "postgresql+asyncpg://" in url and "sslmode=" in url:
+        url = url.replace("sslmode=", "ssl=")
+    return url
+
+
+def get_active_database_url() -> str:
+    """Resolve and validate the active database URL based on APP_ENV."""
+    raw_url = (settings.DATABASE_URL or "").strip()
+    app_env = getattr(settings, "APP_ENV", "development").lower()
+
+    if app_env == "production":
+        if not raw_url:
+            raise RuntimeError(
+                "CRITICAL CONFIGURATION ERROR: APP_ENV=production requires the DATABASE_URL environment "
+                "variable to be configured with a PostgreSQL connection string (e.g. postgresql+asyncpg://...). "
+                "DATABASE_URL is currently empty."
+            )
+        if "sqlite" in raw_url.lower():
+            raise RuntimeError(
+                "CRITICAL CONFIGURATION ERROR: APP_ENV=production requires a PostgreSQL database with PostGIS. "
+                "SQLite is disabled in production to protect data persistence. "
+                "Please configure DATABASE_URL with your PostgreSQL connection string in Render, "
+                "or set APP_ENV=development if testing with local SQLite."
+            )
+
+    # In development/test, if DATABASE_URL is not set or defaults to sqlite
+    if not raw_url:
+        raw_url = "sqlite+aiosqlite:///./aibhoomi.db"
+
+    return normalize_database_url(raw_url)
+
+
+# Choose active DB URL and configure engine
+ACTIVE_DB_URL = get_active_database_url()
 engine_kwargs: dict[str, Any] = {
     "echo": False,
 }
@@ -60,6 +105,7 @@ else:
     engine_kwargs["pool_pre_ping"] = True
     engine_kwargs["pool_size"] = 10
     engine_kwargs["max_overflow"] = 20
+    engine_kwargs["pool_recycle"] = 1800
 
 engine = create_async_engine(ACTIVE_DB_URL, **engine_kwargs)
 
@@ -78,9 +124,20 @@ class Base(DeclarativeBase):
 
 
 async def init_db() -> None:
-    """Create tables on startup."""
+    """Create extensions (PostgreSQL) and tables on startup."""
     import app.models  # noqa: F401 — registers all models on Base.metadata
     async with engine.begin() as conn:
+        if engine.dialect.name == "postgresql":
+            try:
+                from sqlalchemy import text
+                await conn.execute(text('CREATE EXTENSION IF NOT EXISTS "uuid-ossp";'))
+                await conn.execute(text('CREATE EXTENSION IF NOT EXISTS "postgis";'))
+                logger.info("PostgreSQL extensions (uuid-ossp, postgis) checked/enabled.")
+            except Exception as ext_err:
+                logger.warning(
+                    "Notice: Could not automatically enable PostGIS/uuid-ossp extension: %s",
+                    ext_err,
+                )
         await conn.run_sync(Base.metadata.create_all)
 
 
