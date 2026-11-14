@@ -1,0 +1,53 @@
+{
+  "title": "Interactive Field Mapping & Farm Registry",
+  "subtitle": "Delineate cadastral field boundaries, calculate geodesic area, and run AI soil fertility estimation.",
+  "searchPlaceholder": "Search Indian village, taluka, district, or PIN code...",
+  "locateMe": "Locate My Current Position",
+  "locateFarm": "Locate My Farm",
+  "registerField": "Register This Field Parcel",
+  "tools": {
+    "polygonTool": "Multi-Point Polygon Tool",
+    "polygonDesc": "Plot up to 20 boundary vertices manually",
+    "squareTool": "Square Area Box (2.03 Acres)",
+    "squareDesc": "Instant 2.03-acre calibrated test parcel",
+    "visualBasemap": "Visual Basemap (Sentinel-2)",
+    "visualBasemapDesc": "True-color optical imagery (Visual reference only; no spectral features ingested into ML)",
+    "finishPolygon": "Finish & Lock Boundary",
+    "undoPoint": "Undo Last Vertex",
+    "clearPoints": "Clear All Points",
+    "editBoundary": "Edit Boundary Points",
+    "analyzeField": "Analyze Field Soil"
+  },
+  "metrics": {
+    "selectedPoints": "Selected Boundary Vertices",
+    "calculatedArea": "Authoritative Area",
+    "perimeter": "Perimeter Length",
+    "centroid": "Spatial Centroid",
+    "acres": "Acres",
+    "hectares": "Hectares",
+    "sqm": "Square Metres",
+    "pointIndex": "#",
+    "latitude": "Latitude (°N)",
+    "longitude": "Longitude (°E)",
+    "actions": "Action",
+    "noPointsYet": "Click on the map to place boundary points (minimum 3 required for a valid polygon)."
+  },
+  "form": {
+    "modalTitle": "Register Field Parcel",
+    "farmName": "Farm Name",
+    "farmNamePlaceholder": "e.g., Godavari Shivar Plot 1",
+    "district": "District",
+    "taluka": "Taluka / Tehsil",
+    "village": "Village / Gaon",
+    "soilType": "Primary Soil Classification",
+    "irrigationType": "Water Availability & Irrigation Method",
+    "saveSuccess": "Farm parcel registered successfully in authoritative database.",
+    "areaNote": "Field boundary area derived from geometry:"
+  },
+  "validation": {
+    "minPoints": "Please add at least 3 points to form a closed polygon boundary.",
+    "maxPoints": "Maximum 20 boundary points allowed per field parcel.",
+    "selfIntersection": "Polygon boundary self-intersects. Please adjust vertices to create a simple perimeter.",
+    "notFinished": "Please click 'Finish & Lock Boundary' before proceeding to soil analysis."
+  }
+}

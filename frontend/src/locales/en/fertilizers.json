@@ -1,0 +1,38 @@
+{
+  "title": "Fertilizer & Soil Treatment Recommendations",
+  "subtitle": "Soil-test based dosing calculated per acre and field total, avoiding synthetic over-application.",
+  "sectionOrganic": "Organic Soil Conditioning (Basal)",
+  "sectionChemical": "Targeted Chemical Fertilizer Plan",
+  "sectionComparison": "Treatment Plan Comparison",
+  "tableHeadings": {
+    "fertilizer": "Fertilizer / Amendment",
+    "ratePerAcre": "Application Rate per Acre",
+    "totalRequired": "Total Required for Field",
+    "bagCount": "Standard 50kg Bags",
+    "timing": "Application Schedule & Method",
+    "nutrientSupplied": "Nutrient Supplied"
+  },
+  "products": {
+    "urea": "Urea (46% N)",
+    "dap": "Di-Ammonium Phosphate (DAP 18:46:0)",
+    "mop": "Muriate of Potash (MOP 0:0:60)",
+    "fym": "Farm Yard Manure (FYM / Well-rotted Cow Dung)",
+    "vermicompost": "Enriched Vermicompost",
+    "neemCake": "Neem Seed Cake",
+    "biofertilizer": "Rhizobium / PSB Biofertilizers",
+    "zincSulphate": "Zinc Sulphate (ZnSO4 21%)"
+  },
+  "timings": {
+    "basal": "Basal application at final land preparation / sowing",
+    "firstSplit": "Top dressing at 30-35 days after sowing (first weeding/irrigation)",
+    "secondSplit": "Top dressing at flowering / panicle initiation (50-60 DAS)",
+    "foliar": "Foliar spray during active vegetative phase"
+  },
+  "guardrailNotice": "Anti-Hallucination Safe Clamping: Doses are bounded by ICAR-STCR equations and Maharashtra Agriculture Department maximum permissible limits.",
+  "organicVsChemical": {
+    "cost": "Cost Estimate",
+    "soilHealth": "Long-Term Soil Health",
+    "yieldImpact": "Yield Impact",
+    "sustainability": "Environmental Sustainability"
+  }
+}

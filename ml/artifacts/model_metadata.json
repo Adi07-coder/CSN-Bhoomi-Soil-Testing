@@ -1,0 +1,71 @@
+{
+  "model_name": "csn-bhoomi-maharashtra-soil-estimator",
+  "model_version": "1.0.0",
+  "training_data_hash": "6252d558b86346cc5ed38a952a0871faf3d3a40294e7f029f3dba54c0ed33644",
+  "algorithm": "HistGradientBoostingRegressor + QuantileRegressor Ensembles",
+  "validation_strategy": "5-fold Spatial GroupKFold (grouped by district)",
+  "intended_geography": "Maharashtra, India (all 36 districts)",
+  "trained_targets": {
+    "ph": {
+      "n_samples": 2747,
+      "unit": "pH units",
+      "cv_mae": 0.415,
+      "cv_rmse": 0.521,
+      "cv_r2": 0.608,
+      "baseline_mae": 0.696,
+      "min_allowed": 4.0,
+      "max_allowed": 10.0
+    },
+    "organic_carbon_pct": {
+      "n_samples": 2747,
+      "unit": "%",
+      "cv_mae": 0.331,
+      "cv_rmse": 0.466,
+      "cv_r2": -0.105,
+      "baseline_mae": 0.31,
+      "min_allowed": 0.05,
+      "max_allowed": 5.0
+    },
+    "available_nitrogen_kg_ha": {
+      "n_samples": 2747,
+      "unit": "kg/ha",
+      "cv_mae": 67.405,
+      "cv_rmse": 90.174,
+      "cv_r2": 0.065,
+      "baseline_mae": 71.436,
+      "min_allowed": 40.0,
+      "max_allowed": 750.0
+    },
+    "available_phosphorus_kg_ha": {
+      "n_samples": 2613,
+      "unit": "kg/ha",
+      "cv_mae": 4.486,
+      "cv_rmse": 5.972,
+      "cv_r2": 0.372,
+      "baseline_mae": 5.957,
+      "min_allowed": 1.0,
+      "max_allowed": 80.0
+    },
+    "available_potassium_kg_ha": {
+      "n_samples": 2613,
+      "unit": "kg/ha",
+      "cv_mae": 46.031,
+      "cv_rmse": 58.827,
+      "cv_r2": 0.333,
+      "baseline_mae": 59.167,
+      "min_allowed": 20.0,
+      "max_allowed": 600.0
+    },
+    "electrical_conductivity_dS_m": {
+      "n_samples": 2613,
+      "unit": "dS/m",
+      "cv_mae": 0.129,
+      "cv_rmse": 0.165,
+      "cv_r2": 0.134,
+      "baseline_mae": 0.143,
+      "min_allowed": 0.05,
+      "max_allowed": 3.0
+    }
+  },
+  "status": "validated_and_registered"
+}

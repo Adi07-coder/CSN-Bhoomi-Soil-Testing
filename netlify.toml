@@ -1,0 +1,17 @@
+# ─── Netlify Configuration for CSN Bhoomi Soil Testing ──────────────────────
+# Frontend (React + Vite) is deployed as a static site.
+# Backend (FastAPI) must be deployed separately on a Python host (e.g. Render).
+
+[build]
+  base    = "frontend"
+  command = "npm ci && npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ── SPA Routing — React Router needs all 404s served as index.html ────────────
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

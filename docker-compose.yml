@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  # ── PostgreSQL with PostGIS ─────────────────────────────────────────────────
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: aibhoomi_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aibhoomi
+      POSTGRES_USER: aibhoomi
+      POSTGRES_PASSWORD: aibhoomi_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aibhoomi"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── FastAPI Backend ─────────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aibhoomi_backend
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://aibhoomi:aibhoomi_dev@db:5432/aibhoomi
+      SYNC_DATABASE_URL: postgresql://aibhoomi:aibhoomi_dev@db:5432/aibhoomi
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./ml/artifacts:/app/ml/artifacts
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  # ── Vite Frontend (dev server) ──────────────────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: aibhoomi_frontend
+    restart: unless-stopped
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000
+
+volumes:
+  postgres_data:

@@ -1,0 +1,62 @@
+{
+  "title": "Soil Fertility Analysis & ICAR Benchmark Diagnostic",
+  "subtitle": "Calibrated against ICAR-IISS Bhopal Soil Fertility Atlas & MPKV Rahuri Agronomic Research Standards.",
+  "tabs": {
+    "overview": "Diagnostic Overview",
+    "macronutrients": "Primary NPK & Carbon",
+    "micronutrients": "Micronutrient Index",
+    "benchmarks": "Authoritative Benchmarks",
+    "provenance": "Data Provenance & Audit"
+  },
+  "fertilityIndex": "Soil Fertility Index (SFI)",
+  "fertilityStatus": "Fertility Category",
+  "parameters": {
+    "parameter": "Parameter",
+    "observedValue": "Observed / Estimated Value",
+    "optimalRange": "ICAR-IISS Optimal Range",
+    "status": "Diagnostic Rating",
+    "testMethod": "Standard Test Method",
+    "sourceId": "Benchmark Reference ID",
+    "ph": "Soil Reaction (pH)",
+    "phDesc": "Potentiometric 1:2.5 soil-water suspension",
+    "ec": "Electrical Conductivity (EC)",
+    "ecDesc": "Soluble salt conductivity (1:2.5 suspension, dS/m)",
+    "oc": "Organic Carbon (OC)",
+    "ocDesc": "Walkley-Black chromic acid wet oxidation (%)",
+    "n": "Available Nitrogen (N)",
+    "nDesc": "Alkaline permanganate oxidizable nitrogen (kg/ha)",
+    "p": "Available Phosphorus (P)",
+    "pDesc": "Olsen sodium bicarbonate extractable P (kg/ha)",
+    "k": "Available Potassium (K)",
+    "kDesc": "Neutral normal ammonium acetate exchangeable K (kg/ha)",
+    "zn": "Available Zinc (Zn)",
+    "znDesc": "DTPA extractable available zinc (mg/kg or ppm)",
+    "fe": "Available Iron (Fe)",
+    "feDesc": "DTPA extractable available iron (mg/kg or ppm)",
+    "cu": "Available Copper (Cu)",
+    "cuDesc": "DTPA extractable available copper (mg/kg or ppm)",
+    "mn": "Available Manganese (Mn)",
+    "mnDesc": "DTPA extractable available manganese (mg/kg or ppm)",
+    "b": "Available Boron (B)",
+    "bDesc": "Hot water soluble boron (mg/kg or ppm)",
+    "s": "Available Sulphur (S)",
+    "sDesc": "0.15% CaCl2 extractable turbidimetric sulphur (mg/kg or ppm)"
+  },
+  "ratings": {
+    "optimal": "Optimal / Adequate",
+    "medium": "Medium / Normal",
+    "low": "Deficient / Low",
+    "veryLow": "Severely Deficient",
+    "high": "High / Excess",
+    "slightlyAlkaline": "Slightly Alkaline",
+    "moderatelyAlkaline": "Moderately Alkaline",
+    "saline": "Saline / Salt Affected",
+    "normal": "Normal / Non-Saline"
+  },
+  "provenance": {
+    "title": "Data Provenance & Scientific Traceability",
+    "stlNotice": "Soil Testing Laboratory (STL) Standard: Field measurements should be verified with certified wet-chemistry laboratory analysis before applying intensive chemical dosages.",
+    "calibration": "Model Calibration: HistGradientBoostingRegressor (csnbhoomi-soil-v1.0.0) trained on Maharashtra agro-ecological zones with strict ICAR bounding.",
+    "satelliteNote": "Satellite Sentinel-2 optical layers serve as visual basemap inspection only; no unverified spectral features are fabricated."
+  }
+}

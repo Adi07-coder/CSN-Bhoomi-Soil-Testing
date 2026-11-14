@@ -1,0 +1,13 @@
+parameter,value,unit,method
+pH,7.4,pH,1:2.5 Soil Water Suspension
+EC,0.42,dS/m,Conductivity Meter
+OC,0.68,%,Walkley-Black Wet Oxidation
+N,260,kg/ha,Alkaline Permanganate
+P,19.5,kg/ha,Olsen Method (0.5M NaHCO3)
+K,320,kg/ha,Neutral Ammonium Acetate
+Zn,0.85,mg/kg,DTPA Extraction
+Fe,7.2,mg/kg,DTPA Extraction
+Cu,1.15,mg/kg,DTPA Extraction
+Mn,5.4,mg/kg,DTPA Extraction
+B,0.52,mg/kg,Hot Water Soluble
+S,12.8,mg/kg,0.15% CaCl2 Turbidimetric

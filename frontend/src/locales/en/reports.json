@@ -1,0 +1,34 @@
+{
+  "title": "Farm Soil & Agronomic Dossier Reports",
+  "subtitle": "Official two-page advisory dossiers with cadastral bounds, soil diagnostic tables, and treatment schedules.",
+  "generateBtn": "Generate Farm Advisory Dossier",
+  "dossierFormatNotice": "Official Dossier Format: Generated reports integrate farm cadastral bounds, soil test parameter measurements, Sentinel-2 vegetative canopy indices, and fertilizer requirements. Suitable for printing and farmer recordkeeping.",
+  "noReports": "No reports generated yet. Click 'Generate Farm Advisory Dossier' to create your first report.",
+  "table": {
+    "farm": "Farm Parcel",
+    "seasonYear": "Season / Year",
+    "status": "Provenance Status",
+    "generatedDate": "Generated Date",
+    "actions": "Actions",
+    "view": "View Dossier",
+    "download": "Download PDF"
+  },
+  "modal": {
+    "generateTitle": "Generate Farm Advisory Dossier",
+    "selectFarm": "Select Farm Parcel",
+    "reportTitle": "Report Title",
+    "season": "Target Season",
+    "generateAction": "Generate Report",
+    "generating": "Compiling Dossier...",
+    "cancel": "Cancel"
+  },
+  "viewModal": {
+    "officialHeading": "CSN BHOOMI — AGRICULTURAL INTELLIGENCE REPORT",
+    "certifiedNotice": "Prepared in accordance with ICAR-IISS Soil Diagnostics Standards",
+    "farmDetails": "Farm Identity & Cadastral Profile",
+    "soilTable": "Comprehensive Soil Fertility Diagnostic Table",
+    "cropSection": "Recommended Crops & Season Suitability",
+    "fertilizerSection": "Soil-Test Based Nutrient Dosing Schedule",
+    "disclaimer": "IMPORTANT NOTICE: This dossier is an agricultural decision-support document generated using calibrated soil models and regional benchmarks. Field verification by a certified soil testing laboratory is recommended prior to high-capital inputs."
+  }
+}

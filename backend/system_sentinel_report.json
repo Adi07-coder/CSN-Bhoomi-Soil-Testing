@@ -1,0 +1,31 @@
+{
+  "cycle": 1,
+  "timestamp": "2026-10-15 14:50:31",
+  "overall_status": "100% Passed (All Systems Operational)",
+  "backend": {
+    "status": "PASS",
+    "latency_ms": 2087,
+    "detail": "200 OK"
+  },
+  "database": {
+    "status": "PASS",
+    "latency_ms": 4,
+    "detail": "Integrity ok (66 farms registered)"
+  },
+  "ml_model": {
+    "status": "PASS",
+    "latency_ms": 4783,
+    "detail": "Inference 200 OK (Fertility: 79.0/100)"
+  },
+  "frontend": {
+    "status": "PASS",
+    "detail": "Active on port 5173"
+  },
+  "security": {
+    "status": "PASS",
+    "rating": "A+ (Protected)",
+    "vulnerabilities_detected": 0,
+    "issues": [],
+    "detail": "0 vulnerabilities detected; ICAR STCR safety boundaries active."
+  }
+}

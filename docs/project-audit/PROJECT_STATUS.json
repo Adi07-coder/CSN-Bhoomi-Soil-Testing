@@ -1,0 +1,48 @@
+{
+  "project_name": "CSN BHOOMI â€” Satellite Soil Report",
+  "audit_and_redesign_date": "2026-10-27",
+  "version": "2.1.0",
+  "frontend": {
+    "status": "COMPLETED",
+    "framework": "React 19 + TypeScript + Vite + Tailwind CSS",
+    "pages_count": 14,
+    "agents_architecture": {
+      "agent_1": {
+        "name": "Soil Analysis Agent",
+        "route": "/agents/soil-analysis",
+        "purpose": "Field soil estimation, ICAR ratings, NPK & Micronutrient diagnostic",
+        "backend_service": "POST /api/v1/analyses (soil_model_pipeline.py)"
+      },
+      "agent_2": {
+        "name": "Planting Advisor Agent",
+        "route": "/agents/planting-advisor",
+        "purpose": "Crop suitability matching, Google Gemini AI guidance, 50kg fertilizer bag schedules",
+        "backend_service": "POST /api/v1/crop-recommendations/evaluate (gemini_crop_recommendation_service.py)"
+      }
+    },
+    "shared_context": {
+      "name": "FarmContext",
+      "file": "frontend/src/context/FarmContext.tsx",
+      "features": ["active_farm_persistence", "deep_link_url_sync", "cross_agent_soil_data_flow"]
+    },
+    "build_status": "PASSING (0 errors, 5.56s production build)"
+  },
+  "backend": {
+    "status": "OPERATIONAL",
+    "framework": "FastAPI + Uvicorn + SQLAlchemy",
+    "database": "SQLite (dev: csnbhoomi.db) / PostgreSQL (docker)",
+    "ml_model": "Random Forest multi-target pipeline (soil_model_pipeline.joblib - 4.96MB)",
+    "llm_advisory": "Google Gemini (gemini-2.5-flash / gemini-flash-latest) with deterministic ICAR fallback"
+  },
+  "gis_mapping": {
+    "status": "OPERATIONAL",
+    "basemap": "Sentinel-2 visual basemap + OpenStreetMap",
+    "geocoding": "Geoapify API with pure-Python local fallback",
+    "area_engine": "Geodesic spherical shoelace polygon calculation (Acres & Hectares)"
+  },
+  "localization": {
+    "status": "COMPLETED",
+    "languages": ["English (en)", "Hindi (hi)"],
+    "dual_mode": "Supported with instant subtext translation"
+  }
+}

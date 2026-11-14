@@ -1,0 +1,52 @@
+{
+  "title": "Crop Selection & Agricultural Configuration",
+  "subtitle": "Verified crop suitability grounded in ICAR-IISS and MPKV Rahuri agronomic matrices with Gemini AI reasoning.",
+  "seasonLabel": "Crop Season",
+  "seasons": {
+    "kharif": "Kharif (Monsoon / Rainfed)",
+    "rabi": "Rabi (Winter / Residual Moisture)",
+    "summer": "Summer (Zaid / Irrigated)"
+  },
+  "targetCrop": "Target Crop",
+  "waterAvail": "Water Availability",
+  "waterOptions": {
+    "rainfed": "Rainfed (Dependent on monsoon rainfall)",
+    "mediumCanal": "Medium / Canal (1-3 protective irrigations)",
+    "assuredDrip": "High / Assured (Borewell / Drip micro-irrigation)"
+  },
+  "previousCrop": "Previous Season Crop",
+  "evaluateBtn": "Evaluate Suitable Crops with Gemini AI",
+  "evaluatingBtn": "Evaluating with ICAR & Gemini...",
+  "resultsTitle": "Agronomic Crop Recommendations",
+  "suitability": {
+    "highlySuitable": "Highly Suitable",
+    "moderatelySuitable": "Moderately Suitable",
+    "conditional": "Conditional / Restricted",
+    "insufficientData": "Insufficient Soil Data",
+    "preliminary": "Preliminary Assessment (Data Missing/Demo)"
+  },
+  "names": {
+    "soybean": "Soybean",
+    "cotton": "Cotton",
+    "wheat": "Wheat",
+    "gram": "Gram / Chickpea",
+    "tur": "Tur / Pigeonpea",
+    "jowar": "Rabi Jowar / Sorghum",
+    "maize": "Kharif Maize",
+    "groundnut": "Summer Groundnut",
+    "moong": "Summer Moong",
+    "paddy": "Paddy / Rice"
+  },
+  "card": {
+    "reasons": "Agronomic Justification:",
+    "waterRequirement": "Water Requirement:",
+    "supportingEvidence": "Authoritative Reference:",
+    "constraints": "Soil & Climate Constraints:",
+    "notRecommended": "Unsuitable or Non-Recommended Crops for this Season/Soil:",
+    "nextSteps": "Recommended Agronomic Actions:",
+    "validationBanner": "Evidence Validation Summary:",
+    "passedChecks": "Passed Verification Checks",
+    "failedChecks": "Failed Checks / Violations",
+    "unavailableChecks": "Data Limitations / Unverified"
+  }
+}

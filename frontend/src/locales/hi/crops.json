@@ -1,0 +1,52 @@
+{
+  "title": "फसल चयन एवं कृषि विन्यास (Crop Selection)",
+  "subtitle": "आईसीएआर (ICAR-IISS) और महात्मा फुले कृषि विद्यापीठ (MPKV) राहुरी के मानकों तथा जेमिनी एआई (Gemini AI) पर आधारित प्रामाणिक फसल सिफारिशें।",
+  "seasonLabel": "फसल का मौसम (ऋतु)",
+  "seasons": {
+    "kharif": "खरीफ (मानसून / वर्षा आधारित)",
+    "rabi": "रबी (सर्दियों का मौसम / संरक्षित नमी)",
+    "summer": "ग्रीष्मकालीन (जायद / सिंचित)"
+  },
+  "targetCrop": "लक्षित फसल",
+  "waterAvail": "जल उपलब्धता और सिंचाई साधन",
+  "waterOptions": {
+    "rainfed": "वर्षा आधारित (केवल मानसूनी वर्षा पर निर्भर)",
+    "mediumCanal": "मध्यम / नहर (1-3 सुरक्षात्मक सिंचाई उपलब्ध)",
+    "assuredDrip": "प्रचुर / सुनिश्चित (नलकूप / ड्रिप टपक सिंचाई)"
+  },
+  "previousCrop": "पिछली फसल (Previous Crop)",
+  "evaluateBtn": "जेमिनी एआई द्वारा उपयुक्त फसलें खोजें",
+  "evaluatingBtn": "आईसीएआर मानकों से मूल्यांकन जारी है...",
+  "resultsTitle": "कृषि-वैज्ञानिक फसल सिफारिशें",
+  "suitability": {
+    "highlySuitable": "अत्यधिक उपयुक्त (Highly Suitable)",
+    "moderatelySuitable": "मध्यम उपयुक्त (Moderately Suitable)",
+    "conditional": "सशर्त / सीमित उपयुक्त (Conditional)",
+    "insufficientData": "अपर्याप्त मृदा परीक्षण डेटा",
+    "preliminary": "प्रारंभिक मूल्यांकन (डेटा अधूरा / डेमो)"
+  },
+  "names": {
+    "soybean": "सोयाबीन (Soybean)",
+    "cotton": "कपास (Cotton)",
+    "wheat": "गेहूँ (Wheat)",
+    "gram": "चना (Gram / Chickpea)",
+    "tur": "अरहर / तुअर (Tur / Pigeonpea)",
+    "jowar": "ज्वार (Rabi Jowar / Sorghum)",
+    "maize": "मक्का (Kharif Maize)",
+    "groundnut": "मूंगफली (Summer Groundnut)",
+    "moong": "मूँग (Summer Moong)",
+    "paddy": "धान / चावल (Paddy / Rice)"
+  },
+  "card": {
+    "reasons": "वैज्ञानिक अनुकूलता का आधार:",
+    "waterRequirement": "फसल जल आवश्यकता (Water Demand):",
+    "supportingEvidence": "सत्यापित स्रोत व संदर्भ आईडी:",
+    "constraints": "मृदा व जलवायु सीमाएं:",
+    "notRecommended": "इस मौसम / मिट्टी के लिए अनुपयुक्त या गैर-अनुशंसित फसलें:",
+    "nextSteps": "सुझाए गए आगामी कृषि कार्य:",
+    "validationBanner": "प्रमाण सत्यापन सारांश (Audit Summary):",
+    "passedChecks": "सफल सत्यापन जांच",
+    "failedChecks": "अस्वीकृत / अमान्य दावे",
+    "unavailableChecks": "डेटा सीमाएं / असत्यापित बिंदु"
+  }
+}
