@@ -1,6 +1,13 @@
 import axios, { AxiosError } from 'axios';
 
-export const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+// Determine API base URL: use VITE_API_BASE_URL if configured, otherwise auto-detect
+// production Netlify deployment domain to avoid accidental 404s.
+const defaultApiUrl =
+  typeof window !== 'undefined' && window.location.hostname.includes('netlify.app')
+    ? 'https://csn-bhoomi-soil-testing.onrender.com'
+    : 'http://localhost:8000';
+
+export const API_BASE = (import.meta.env.VITE_API_BASE_URL || defaultApiUrl).replace(/\/+$/, '');
 
 export const api = axios.create({
   baseURL: `${API_BASE}/api/v1`,
