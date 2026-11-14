@@ -8,9 +8,10 @@ from __future__ import annotations
 
 
 
+import ast
 import json
 
-from typing import Any
+from typing import Any, Union
 
 
 
@@ -62,7 +63,7 @@ class Settings(BaseSettings):
 
     # ── CORS ─────────────────────────────────────────────────────────────────
 
-    BACKEND_CORS_ORIGINS: list[str] = [
+    BACKEND_CORS_ORIGINS: Union[list[str], str] = [
 
         "http://localhost:5173",
 
@@ -96,11 +97,61 @@ class Settings(BaseSettings):
 
     def parse_cors(cls, v: Any) -> list[str]:
 
+        default_origins = [
+
+            "http://localhost:5173",
+
+            "http://localhost:3000",
+
+            "http://127.0.0.1:5173",
+
+            "http://127.0.0.1:3000",
+
+        ]
+
+        if not v:
+
+            return default_origins
+
+        if isinstance(v, list):
+
+            return [str(item).strip() for item in v if item]
+
         if isinstance(v, str):
 
-            return json.loads(v)
+            v = v.strip()
 
-        return v
+            if not v:
+
+                return default_origins
+
+            if v.startswith("[") and v.endswith("]"):
+
+                try:
+
+                    parsed = json.loads(v)
+
+                    if isinstance(parsed, list):
+
+                        return [str(item).strip() for item in parsed if item]
+
+                except Exception:
+
+                    try:
+
+                        parsed = ast.literal_eval(v)
+
+                        if isinstance(parsed, list):
+
+                            return [str(item).strip() for item in parsed if item]
+
+                    except Exception:
+
+                        pass
+
+            return [item.strip() for item in v.split(",") if item.strip()]
+
+        return [str(v)]
 
 
 
