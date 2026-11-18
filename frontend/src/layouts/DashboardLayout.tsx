@@ -322,6 +322,16 @@ export default function DashboardLayout() {
               )}
             </button>
 
+            {/* Top Head Logo & Brand */}
+            <div className={`flex items-center gap-2.5 ${sidebarCollapsed ? 'flex' : 'lg:hidden'}`}>
+              <div className="w-8 h-8 rounded-lg bg-[#166534] flex items-center justify-center shadow-xs text-white flex-shrink-0">
+                <Leaf className="w-4 h-4 text-[#22C55E]" />
+              </div>
+              <span className="font-display font-bold text-gray-900 text-sm whitespace-nowrap">
+                CSN Bhoomi
+              </span>
+            </div>
+
             {/* Breadcrumb / Page Title */}
             <div className="hidden sm:flex items-center gap-2 text-xs">
               <span className="text-gray-400">CSN Bhoomi</span>

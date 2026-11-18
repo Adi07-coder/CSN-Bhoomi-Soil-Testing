@@ -62,7 +62,7 @@ const MARATHI_DICTIONARY: Record<string, string> = {
   'Analyze Field Soil': 'मृदा विश्लेषण करा',
   'View Crop Advisory': 'पीक शिफारसी पहा',
   'Generate Report Dossier': 'सल्लागार अहवाल तयार करा',
-  'CSN Bhoomi': 'एआय भूमी',
+  'CSN Bhoomi': 'सीएसएन भूमी',
   'Soil Intelligence Platform': 'मृदा बुद्धिमत्ता व्यासपीठ',
   'Farming Assistant': 'कृषी सहाय्यक',
   'Soil Analysis Agent': 'मृदा विश्लेषण प्रतिनिधी',
